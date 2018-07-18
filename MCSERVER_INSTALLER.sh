@@ -34,7 +34,7 @@ check_sys(){
     fi
 }
 check_sys
-[[ ${release} != "centos" ]] && [[ ${release} != "ubuntu" ]] && echo -e "${Error} 本脚本不支持当前系统 ${release} !" && exit 1
+[[ ${release} != "centos" ]] && [[ ${release} != "ubuntu" ]] && echo -e "\033[31m[Error] 本脚本不支持当前系统\033[0m \033[32m${release}\033[0m!" && exit 1
 
 echo -n -e "\033[36m输入您的安装路径(默认为/home/mcpe):\033[0m "
 read INSTALL_PATH
