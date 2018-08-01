@@ -4,14 +4,12 @@ PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:~/bin
 export PATH
 clear
 printf "
- ==========================================
    __   _       ___   _   _     _   _____  
   |  \ | |     /   | | | | |   / / | ____| 
   |   \| |    / /| | | | | |  / /  | |__   
   | |\   |   / /_| | | | | | / /   |  __|  
   | | \  |  /  __  | | | | |/ /    | |___  
   |_|  \_| /_/   |_| |_| |___/     |_____| 
- ==========================================
   System Required: CentOS 7+/Ubuntu 16.04+
 "
 
@@ -50,9 +48,10 @@ echo "开始安装......"
 [[ -d "$INSTALL_PATH" ]] && rm -rf $INSTALL_PATH"_old" && mv $INSTALL_PATH $INSTALL_PATH"_old"
 mkdir $INSTALL_PATH
 cd $INSTALL_PATH
+#下载并安装资源
 wget $(curl -s https://api.github.com/repos/codehz/mcpeserver/releases/latest|jq -r '.assets[0].browser_download_url')
 chmod +x mcpeserver
-wget http://d01-1251778924.coscd.myqcloud.com/Minecraft.apk -O Minecraft.apk
+wget https://minebbs-1251544790.file.myqcloud.com/MCPE86/Minecraft_1.5.2.1_X86.apk -O Minecraft.apk
 ./mcpeserver unpack -apk Minecraft.apk
 ./mcpeserver download
 sleep 3
